@@ -4,7 +4,7 @@
 
 float ratio(float t)
 {
-	return 1.0f / (1.0f + std::expf(-(10.0f*t - 5.0f)));
+	return 1.0f / (1.0f + std::exp2f(-(10.0f*t - 5.0f)));
 }
 
 template<typename T>
@@ -23,10 +23,10 @@ public:
 	{}
 
 	Transition(const T& value, float speed=1.0f)
-		: m_start_value(value),
-		, m_current_value(value),
-		, m_target_value(value),
-		, m_start_time(std::chrono::steady_clock::now()),
+		: m_start_value(value)
+		, m_current_value(value)
+		, m_target_value(value)
+		, m_start_time(std::chrono::steady_clock::now())
 		, m_speed(speed)
 		, m_delta(m_target_value - m_start_value)
 	{}
